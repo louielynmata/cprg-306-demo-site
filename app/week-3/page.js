@@ -18,6 +18,35 @@ const castOfScoobyDoo = [
   },
 ];
 
+// TODO: Move to separate file after prototyping
+function CharacterSheet() {
+  const species = "blah";
+  const name = "mah";
+  const age = 66;
+  /*
+  ## Definition of Done
+    Use Case: Create a bound character sheet that shows information about any character in our data set
+    Scope: render list of information, use conditionals for information that varies from character to character
+    Styling: Add tailwind css for basic visual hierarchy
+  */
+  return (
+    <article>
+      <header>
+        <h3>Character Sheet: Character Name</h3>
+      </header>
+      <div>
+        {/* TODO: Use destructuring to simplify accessing information from the character object */}
+        <ul>
+          <li>Name: {name}</li>
+          <li>Species: {species}</li>
+          <li>Age: {age}</li>
+          {/* TODO: Add conditional to render interests */}
+        </ul>
+      </div>
+    </article>
+  );
+}
+
 export default function Page() {
   // destructuring
   const { name, species, age } = character;
@@ -29,11 +58,13 @@ export default function Page() {
   return (
     <main>
       <header>
-        <h1>Hello Week 3</h1>
+        <h1 className="text-4xl font-bold">Hello Week 3</h1>
       </header>
-      <section>
+      <section className="my-6 md:my-12 lg:my-18">
         <header>
-          <h2>Simple Destructuring Example</h2>
+          <h2 className="text-2xl font-semibold">
+            Simple Destructuring Example
+          </h2>
         </header>
         <div>
           {/* TODO: Use destructuring to simplify accessing information from the character object */}
@@ -44,9 +75,11 @@ export default function Page() {
           </ul>
         </div>
       </section>
-      <section>
+      <section className="my-6 md:my-12 lg:my-18">
         <header>
-          <h2>Character Info Full Details</h2>
+          <h2 className="text-2xl font-semibold">
+            Character Info Full Details
+          </h2>
           <p>Showing information from the array of characters</p>
         </header>
         <ul>
@@ -62,8 +95,23 @@ export default function Page() {
           </li>
         </ul>
       </section>
-      <section>
-        <h2>Velma Example using an Alias with Destructuring</h2>
+      <section className="my-6 md:my-12 lg:my-18">
+        <header>
+          <h2 className="text-2xl font-semibold">Character Cards</h2>
+          <p>
+            Demonstration of using components to scope out logic to respective
+            levels of abstraction.
+          </p>
+        </header>
+        <div>
+          {/* Add CharacterSheet for each Character */}
+          <CharacterSheet />
+        </div>
+      </section>
+      <section className="my-6 md:my-12 lg:my-18">
+        <h2 className="text-2xl font-semibold">
+          Velma Example using an Alias with Destructuring
+        </h2>
         <ul>
           <li>Name: {scientist}</li>
           <li>Species: {otherSpecies}</li>
