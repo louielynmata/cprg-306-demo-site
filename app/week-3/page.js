@@ -19,10 +19,7 @@ const castOfScoobyDoo = [
 ];
 
 // TODO: Move to separate file after prototyping
-function CharacterSheet() {
-  const species = "blah";
-  const name = "mah";
-  const age = 66;
+function CharacterSheet({ name, species, age }) {
   /*
   ## Definition of Done
     Use Case: Create a bound character sheet that shows information about any character in our data set
@@ -30,9 +27,9 @@ function CharacterSheet() {
     Styling: Add tailwind css for basic visual hierarchy
   */
   return (
-    <article>
-      <header>
-        <h3>Character Sheet: Character Name</h3>
+    <article className="bg-blue-900 my-4 py-6 px-4 rounded-md max-w-sm">
+      <header className="mb-4">
+        <h3 className="text-xl font-semibold">Character Sheet: {name}</h3>
       </header>
       <div>
         {/* TODO: Use destructuring to simplify accessing information from the character object */}
@@ -105,7 +102,9 @@ export default function Page() {
         </header>
         <div>
           {/* Add CharacterSheet for each Character */}
-          <CharacterSheet />
+          <CharacterSheet {...character} />
+          <CharacterSheet {...castOfScoobyDoo[0]} />
+          <CharacterSheet {...castOfScoobyDoo[1]} />
         </div>
       </section>
       <section className="my-6 md:my-12 lg:my-18">
