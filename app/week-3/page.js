@@ -1,3 +1,5 @@
+import CharacterSheet from "../components/CharacterSheet";
+
 const character = {
   name: "Shaggy",
   species: "Human",
@@ -17,32 +19,6 @@ const castOfScoobyDoo = [
     age: 23,
   },
 ];
-
-// TODO: Move to separate file after prototyping
-function CharacterSheet({ name, species, age }) {
-  /*
-  ## Definition of Done
-    Use Case: Create a bound character sheet that shows information about any character in our data set
-    Scope: render list of information, use conditionals for information that varies from character to character
-    Styling: Add tailwind css for basic visual hierarchy
-  */
-  return (
-    <article className="bg-blue-900 my-4 py-6 px-4 rounded-md max-w-sm">
-      <header className="mb-4">
-        <h3 className="text-xl font-semibold">Character Sheet: {name}</h3>
-      </header>
-      <div>
-        {/* TODO: Use destructuring to simplify accessing information from the character object */}
-        <ul>
-          <li>Name: {name}</li>
-          <li>Species: {species}</li>
-          <li>Age: {age}</li>
-          {/* TODO: Add conditional to render interests */}
-        </ul>
-      </div>
-    </article>
-  );
-}
 
 export default function Page() {
   // destructuring
@@ -92,6 +68,8 @@ export default function Page() {
           </li>
         </ul>
       </section>
+
+      {/* Better Example of Scope Management */}
       <section className="my-6 md:my-12 lg:my-18">
         <header>
           <h2 className="text-2xl font-semibold">Character Cards</h2>
@@ -101,12 +79,12 @@ export default function Page() {
           </p>
         </header>
         <div>
-          {/* Add CharacterSheet for each Character */}
           <CharacterSheet {...character} />
           <CharacterSheet {...castOfScoobyDoo[0]} />
           <CharacterSheet {...castOfScoobyDoo[1]} />
         </div>
       </section>
+
       <section className="my-6 md:my-12 lg:my-18">
         <h2 className="text-2xl font-semibold">
           Velma Example using an Alias with Destructuring
