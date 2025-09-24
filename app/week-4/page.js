@@ -1,3 +1,4 @@
+"use client";
 /* Minimal Viable Product Objective:
 - create ability to increase, decrease, and reset the power level of Goku 
 - apply conditional logic so a message shows up for when the power level is over 9000
@@ -6,8 +7,14 @@
 */
 
 export default function Page() {
-  let userName = "Goku";
+  const userName = "Goku";
+  // TODO: Implement state so we can make this properly reactive
   let userPowerLevel = 9000;
+
+  // TODO: fix this function to manage the dom update
+  function increasePowerLevel() {
+    alert(`${(userPowerLevel += 1)}`);
+  }
   return (
     <main className="mx-4">
       {/* TODO: Make a PageHeader.js component */}
@@ -19,7 +26,12 @@ export default function Page() {
         <p className="text-lg">
           Power Level: <strong>{userPowerLevel}</strong>
         </p>
-        <button>Increase Power Level</button>
+        <button
+          onClick={increasePowerLevel}
+          className="bg-blue-500 text-white font-bold p-2 rounded-md hover:bg-blue-700"
+        >
+          Increase Power Level
+        </button>
       </div>
     </main>
   );
