@@ -28,7 +28,7 @@ export default function Page() {
         </p>
         <button
           onClick={increasePowerLevel}
-          className="bg-blue-500 text-white font-bold p-2 rounded-md hover:bg-blue-700"
+          className="bg-blue-500 text-white font-bold p-2 rounded-md cursor-pointer"
         >
           Increase Power Level
         </button>
