@@ -1,6 +1,12 @@
 "use client";
 import { useState } from "react";
 
+/* GOALS:
+- extract Button.js and make callback dynamically assigned
+- create button layout component
+- explore differences between onClick={functionName} and onClick={() => functionName()}
+*/
+
 export default function Page() {
   const characterName = "Edmund Fildergasterberger";
   const [characterAge, setCharacterAge] = useState(399);
