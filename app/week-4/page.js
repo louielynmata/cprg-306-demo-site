@@ -1,7 +1,20 @@
 "use client";
+import { useState } from "react";
+
 export default function Page() {
+  const characterName = "Edmund Fildergasterberger";
+  const [characterAge, setCharacterAge] = useState(399);
+  function alertWithStaticMessage() {
+    alert(`Hello user, Look into why the static function doesn't read msg`);
+  }
   function alertWithMessage(msg = "this is a great time to be a developer!") {
     alert(`Hello user, ${msg}`);
+  }
+  function increaseAge() {
+    setCharacterAge(characterAge + 1);
+  }
+  function decreaseAge() {
+    setCharacterAge(characterAge - 1);
   }
   return (
     <main className="mx-4 xl:mx-8  my-4">
@@ -11,12 +24,12 @@ export default function Page() {
         <div className="flex gap-4">
           <button
             className="bg-black py-4 px-12 my-4 rounded-lg text-white hover:bg-blue-900 cursor-pointer"
-            onClick={alertWithMessage}
+            onClick={alertWithStaticMessage}
           >
             Alert Static
           </button>
           <button
-            onClick={() => alertWithMessage("Cool is as cool does")}
+            onClick={() => alertWithMessage("Heya! ")}
             className="bg-white py-4 px-12 my-4 rounded-lg  hover:bg-blue-100 cursor-pointer"
           >
             Alert Dynamic
@@ -29,6 +42,24 @@ export default function Page() {
             Demonstrate buttons that use state to update visual data
           </h2>
         </header>
+        <div>
+          <p className="text-lg">Name: {characterName}</p>
+          <p>Age: {characterAge}</p>
+          <div className="flex gap-4">
+            <button
+              onClick={increaseAge}
+              className="bg-black py-4 px-12 my-4 rounded-lg text-white hover:bg-blue-900 cursor-pointer"
+            >
+              Increase Age
+            </button>
+            <button
+              onClick={decreaseAge}
+              className="bg-red-700 py-4 px-12 my-4 rounded-lg text-white hover:bg-red-500 cursor-pointer"
+            >
+              Decrease Age
+            </button>
+          </div>
+        </div>
       </section>
     </main>
   );
