@@ -22,6 +22,7 @@ export default function Page() {
   function decreaseAge() {
     setCharacterAge(characterAge - 1);
   }
+
   return (
     <main className="mx-4 xl:mx-8  my-4">
       <header className="py-8 bg-blue-200 md:bg-purple-300   px-4 rounded-md">
