@@ -10,6 +10,18 @@ import { useState } from "react";
 export default function Page() {
   const characterName = "Edmund Fildergasterberger";
   const [characterAge, setCharacterAge] = useState(399);
+  const [counterNumber, setCounterNumber] = useState(0);
+
+  function decreaseCounter() {
+    setCounterNumber(counterNumber - 5);
+  }
+
+  function resetCounter() {
+    // TODO: Create reset function for counter.
+    // use example from logrocket: https://blog.logrocket.com/initialize-state-react-hooks/
+  }
+
+  // Static Messages in header
   function alertWithStaticMessage() {
     alert(`Hello user, Look into why the static function doesn't read msg`);
   }
@@ -24,7 +36,7 @@ export default function Page() {
   }
 
   return (
-    <main className="mx-4 xl:mx-8  my-4">
+    <main>
       <header className="py-8 bg-blue-200 md:bg-purple-300   px-4 rounded-md">
         <h1 className="text-4xl font-semibold mb-4">Week 4 Demo</h1>
         <p className="text-lg">Events and useState. basic Interactivity</p>
@@ -35,14 +47,39 @@ export default function Page() {
           >
             Alert Static
           </button>
+
           <button
-            onClick={() => alertWithMessage("Heya! ")}
+            onClick={() =>
+              alertWithMessage(
+                "input a user name in state to make it really nice "
+              )
+            }
             className="bg-white py-4 px-12 my-4 rounded-lg  hover:bg-blue-100 cursor-pointer"
           >
             Alert Dynamic
           </button>
+          <button
+            onClick={() =>
+              console.log("Running functions is a big deal in react")
+            }
+          >
+            Inline Function
+          </button>
         </div>
       </header>
+      <section>
+        <header>
+          <h2>Counter Demo</h2>
+          <p>In class version</p>
+        </header>
+        <div>
+          <h3>Counter: {counterNumber}</h3>
+          <button onClick={() => setCounterNumber(counterNumber + 5)}>
+            Increase Counter
+          </button>
+        </div>
+        <button onClick={decreaseCounter}>Decrease Counter</button>
+      </section>
       <section>
         <header>
           <h2 className="text-2xl font-semibold mb-2">
