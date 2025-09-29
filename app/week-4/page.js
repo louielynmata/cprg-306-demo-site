@@ -68,17 +68,29 @@ export default function Page() {
         </div>
       </header>
       <section>
-        <header>
-          <h2>Counter Demo</h2>
-          <p>In class version</p>
+        <header className="mt-8 mb-4 p-4 bg-orange-200">
+          <h2 className="text-2xl lg:text-4xl font-semibold">Counter Demo</h2>
+          <p className="text-lg">In class version</p>
         </header>
-        <div>
-          <h3>Counter: {counterNumber}</h3>
-          <button onClick={() => setCounterNumber(counterNumber + 5)}>
-            Increase Counter
-          </button>
+        <div className="px-4">
+          <h3 className="text-xl">
+            <span className="font-semibold">Counter:</span> {counterNumber}
+          </h3>
+          <div className="flex gap-4">
+            <button
+              onClick={() => setCounterNumber(counterNumber + 5)}
+              className="text-lg font-medium bg-blue-800 text-white px-6 py-4 rounded-full cursor-pointer hover:bg-pink-900 hover:shadow-lg transition ease-linear duration-150"
+            >
+              Increase Counter
+            </button>
+            <button
+              onClick={decreaseCounter}
+              className="text-lg font-medium px-6 py-4 rounded-full cursor-pointer outline-solid outline-2 hover:bg-slate-100 hover:shadow-lg transition ease-linear duration-150"
+            >
+              Decrease Counter
+            </button>
+          </div>
         </div>
-        <button onClick={decreaseCounter}>Decrease Counter</button>
       </section>
       <section>
         <header>
