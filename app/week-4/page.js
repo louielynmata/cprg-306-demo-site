@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-
+import SectionHeader from "../components/SectionHeader";
 /* GOALS:
 - extract Button.js and make callback dynamically assigned
 - create button layout component
@@ -68,10 +68,12 @@ export default function Page() {
         </div>
       </header>
       <section>
-        <header className="mt-8 mb-4 p-4 bg-orange-200">
-          <h2 className="text-2xl lg:text-4xl font-semibold">Counter Demo</h2>
-          <p className="text-lg">In class version</p>
-        </header>
+        <SectionHeader
+          title="Counter Demo"
+          description="In Class Version"
+          bgColor="bg-pink-200"
+        />
+
         <div className="px-4">
           <h3 className="text-xl">
             <span className="font-semibold">Counter:</span> {counterNumber}
