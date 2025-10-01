@@ -40,6 +40,12 @@ export default function Page() {
       <header className="py-8 bg-blue-200 md:bg-purple-300   px-4 rounded-md">
         <h1 className="text-4xl font-semibold mb-4">Week 4 Demo</h1>
         <p className="text-lg">Events and useState. basic Interactivity</p>
+      </header>
+      <section>
+        <header>
+          <h2>Simple Buttons with no state</h2>
+          <p>Demonstrates using onClick but not using state with the event</p>
+        </header>
         <div className="flex gap-4">
           <button
             className="bg-black py-4 px-12 my-4 rounded-lg text-white hover:bg-blue-900 cursor-pointer"
@@ -66,7 +72,7 @@ export default function Page() {
             Inline Function
           </button>
         </div>
-      </header>
+      </section>
       <section>
         <SectionHeader
           title="Counter Demo"

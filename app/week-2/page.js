@@ -1,4 +1,5 @@
-import StudentInfo from "./student-info";
+import PageHeader from "../components/PageHeader";
+import StudentInfoSection from "./StudentInfoSection";
 
 const studentInfo = {
   name: "Ashlyn",
@@ -8,10 +9,8 @@ const studentInfo = {
 export default function Page() {
   return (
     <main>
-      <header>
-        <h1>Page Header</h1>
-      </header>
-      <StudentInfo {...studentInfo} />
+      <PageHeader />
+      <StudentInfoSection {...studentInfo} />
     </main>
   );
 }
