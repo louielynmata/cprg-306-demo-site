@@ -8,7 +8,7 @@ const studentInfo = {
 };
 export default function Page() {
   return (
-    <main>
+    <main className="">
       <PageHeader />
       <StudentInfoSection {...studentInfo} />
     </main>
