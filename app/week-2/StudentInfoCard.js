@@ -1,4 +1,17 @@
 import Link from "next/link";
+
+// TODO: Create card sub components
+
+// CardHeader
+
+// CardHeaderTextBox
+
+// CardHeaderImage
+
+// CardButtons
+
+// CardButton (secondary and primary props)
+
 export default function StudentInfoCard({
   name = "Jar Jar Skywalker",
   description = "The plot twist of the century. And a cunning warrior.",
