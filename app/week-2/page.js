@@ -10,11 +10,11 @@ const studentInfo = {
   },
   repo: {
     link: "https://github.com/ashx3s/cprg-306-demo-site",
-    text: "CPRG 306 Demo Site",
+    text: "Demo Site",
   },
   homePage: {
     link: "#",
-    text: "Go to Ashlyn's Portfolio",
+    text: "Portfolio",
   },
 };
 
@@ -27,7 +27,9 @@ export default function Page() {
     <main className="">
       {/* Pass header props to page header component */}
       <PageHeader {...pageHeader} />
-      <StudentInfoSection {...studentInfo} />
+      <section className="ml-2">
+        <StudentInfoSection {...studentInfo} />
+      </section>
     </main>
   );
 }
