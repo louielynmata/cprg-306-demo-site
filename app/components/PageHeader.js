@@ -5,15 +5,17 @@ function TextBoxButton() {
     </button>
   );
 }
-function TextBox() {
+
+function TextBox({
+  title = "Weekly Assignment",
+  description = "focus for the week",
+}) {
   return (
     <div className="p-10 md:p-12 lg:p-16 flex flex-col container max-w-xl xl:max-w-2xl bg-stone-900 rounded-lg">
       <h1 className="mb-2 lg:mb-4 text-5xl lg:text-6xl xl:text-7xl font-semibold lg:font-bold">
-        Week 2 Assignment
+        {title}
       </h1>
-      <p className="text-xl lg:text-2xl">
-        Create a simple component and render my CPRG 306 information in it.
-      </p>
+      <p className="text-xl lg:text-2xl">{description}</p>
       <TextBoxButton />
     </div>
   );
@@ -34,7 +36,7 @@ function ImagePlaceHolder() {
 export default function PageHeader({ title, description }) {
   return (
     <header className="flex flex-col lg:flex-row gap-2 justify-center lg:gap-4 p-2 lg:p-8">
-      <TextBox />
+      <TextBox title={title} description={description} />
       <ImagePlaceHolder />
     </header>
   );
