@@ -5,7 +5,7 @@ const studentInfo = {
   name: "Ashlyn",
   description: "An glib and meaningles",
   image: {
-    path: "",
+    path: "#",
     altText: "profile picture of Ashlyn doing cool stuff.",
   },
   repo: {
@@ -13,7 +13,7 @@ const studentInfo = {
     text: "CPRG 306 Demo Site",
   },
   homePage: {
-    link: "",
+    link: "#",
     text: "Go to Ashlyn's Portfolio",
   },
 };
