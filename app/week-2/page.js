@@ -1,5 +1,5 @@
 import PageHeader from "../components/PageHeader";
-import StudentInfoSection from "./student-info";
+import StudentInfoSection from "./StudentInfoCard";
 
 const studentInfo = {
   name: "Ashlyn",
