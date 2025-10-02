@@ -3,9 +3,21 @@ import StudentInfoSection from "./student-info";
 
 const studentInfo = {
   name: "Ashlyn",
-  repoLink: "https://github.com/ashx3s/cprg-306-demo-site",
-  repoLinkText: "CPRG 306 Demo Site",
+  description: "An glib and meaningles",
+  image: {
+    path: "",
+    altText: "profile picture of Ashlyn doing cool stuff.",
+  },
+  repo: {
+    link: "https://github.com/ashx3s/cprg-306-demo-site",
+    text: "CPRG 306 Demo Site",
+  },
+  homePage: {
+    link: "",
+    text: "Go to Ashlyn's Portfolio",
+  },
 };
+
 const pageHeader = {
   title: "Student Info Page",
   description: "Week 2 assignment",
