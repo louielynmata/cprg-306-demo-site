@@ -12,7 +12,7 @@ function TextBox({
 }) {
   return (
     <div className="p-10 md:p-12 lg:p-16 flex flex-col container max-w-xl xl:max-w-2xl bg-stone-900 rounded-lg">
-      <h1 className="mb-2 lg:mb-4 text-5xl lg:text-6xl xl:text-7xl font-semibold lg:font-bold">
+      <h1 className="mb-2 lg:mb-4 text-5xl lg:text-6xl xl:text-7xl font-semibold lg:font-bold text-white dark:text-gray-500">
         {title}
       </h1>
       <p className="text-xl lg:text-2xl">{description}</p>
