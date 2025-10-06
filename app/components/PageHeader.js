@@ -11,8 +11,8 @@ function TextBox({
   description = "focus for the week",
 }) {
   return (
-    <div className="p-10 md:p-12 lg:p-16 flex flex-col container max-w-xl xl:max-w-2xl bg-stone-900 rounded-lg">
-      <h1 className="mb-2 lg:mb-4 text-5xl lg:text-6xl xl:text-7xl font-semibold lg:font-bold text-white dark:text-gray-500">
+    <div className="p-10 md:p-12 lg:p-16 flex flex-col container max-w-xl xl:max-w-2xl bg-stone-100 dark:bg-stone-900 rounded-lg">
+      <h1 className="mb-2 lg:mb-4 text-5xl lg:text-6xl xl:text-7xl font-semibold lg:font-bold  dark:text-gray-500">
         {title}
       </h1>
       <p className="text-xl lg:text-2xl">{description}</p>
@@ -22,12 +22,12 @@ function TextBox({
 }
 function ImagePlaceHolder() {
   return (
-    <div className="container bg-stone-900 rounded-lg p-10 md:p-12 lg:p-16 max-w-xl xl:max-w-2xl">
-      <h3 className="text-6xl font-bold">
+    <div className="container  rounded-lg p-10 md:p-12 lg:p-16 max-w-xl xl:max-w-2xl">
+      <h3 className="text-6xl font-bold ">
         IMAGE
         <span className="block">
           <span className="block text-blue-500">PLACE</span>
-          <span className="block">HOLDER</span>
+          <span className="block ">HOLDER</span>
         </span>
       </h3>
     </div>

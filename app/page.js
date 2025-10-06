@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "./components/PageHeader";
+import SiteHeader from "./components/SiteHeader";
 // TODO: Remove content and add links to the weekly sessions
 
 export default function Home() {
