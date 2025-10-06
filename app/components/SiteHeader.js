@@ -2,11 +2,13 @@ import Link from "next/link";
 export default function SiteHeader() {
   return (
     <header>
-      <nav>
+      <nav className="flex justify-between gap-4 px-4 bg-black text-white py-8">
         <div>
-          <Link href="/">Home</Link>
+          <Link href="/" className="text-2xl font-bold">
+            Home
+          </Link>
         </div>
-        <ul>
+        <ul className="flex gap-4 text-lg">
           <li>
             <Link href="week-2">Week 2</Link>
           </li>

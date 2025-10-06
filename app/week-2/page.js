@@ -27,8 +27,13 @@ export default function Page() {
     <main className="">
       {/* Pass header props to page header component */}
       <PageHeader {...pageHeader} />
-      <section className="ml-2">
-        <StudentInfoSection {...studentInfo} />
+      <section className="ml-2 container flex flex-col">
+        <header>
+          <h2 className="text-3xl font-semibold mb-2">Student Info Cards</h2>
+        </header>
+        <div className="flex gap-4">
+          <StudentInfoSection {...studentInfo} />
+        </div>
       </section>
     </main>
   );
