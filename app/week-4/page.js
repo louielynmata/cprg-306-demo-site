@@ -18,6 +18,7 @@ export default function Page() {
 
   function resetCounter() {
     // TODO: Create reset function for counter.
+    setCounterNumber(0);
     // use example from logrocket: https://blog.logrocket.com/initialize-state-react-hooks/
   }
 
@@ -98,6 +99,12 @@ export default function Page() {
             >
               Decrease Counter
             </button>
+            <button
+              onClick={resetCounter}
+              className="bg-red-700 py-4 px-12 my-4 rounded-full text-white hover:bg-red-500 cursor-pointer"
+            >
+              Reset
+            </button>
           </div>
         </div>
       </section>
@@ -119,7 +126,7 @@ export default function Page() {
             </button>
             <button
               onClick={decreaseAge}
-              className="bg-red-700 py-4 px-12 my-4 rounded-lg text-white hover:bg-red-500 cursor-pointer"
+              className="bg-green-700 py-4 px-12 my-4 rounded-lg text-white hover:bg-green-500 cursor-pointer"
             >
               Decrease Age
             </button>
