@@ -37,7 +37,7 @@ export default function Page() {
 
   return (
     <main>
-      <header className="py-8 bg-blue-200 md:bg-purple-300   px-4 rounded-md">
+      <header className="py-12 md:py-20 bg-stone-100 dark:bg-stone-800 px-4 rounded-md">
         <h1 className="text-4xl font-semibold mb-4">Week 4 Demo</h1>
         <p className="text-lg">Events and useState. basic Interactivity</p>
       </header>
@@ -60,7 +60,7 @@ export default function Page() {
                 "input a user name in state to make it really nice "
               )
             }
-            className="bg-white py-4 px-12 my-4 rounded-lg  hover:bg-blue-100 cursor-pointer"
+            className="bg-pink-200 dark:bg-pink-800 py-4 px-12 my-4 font-semibold rounded-lg  hover:bg-blue-100 dark:hover:bg-blue-800 cursor-pointer"
           >
             Alert Dynamic
           </button>
@@ -77,7 +77,8 @@ export default function Page() {
         <SectionHeader
           title="Counter Demo"
           description="In Class Version"
-          bgColor="bg-pink-200"
+          bgColor="bg-pink-200 dark:bg-pink-800"
+          styles=""
         />
 
         <div className="px-4">
@@ -93,7 +94,7 @@ export default function Page() {
             </button>
             <button
               onClick={decreaseCounter}
-              className="text-lg font-medium px-6 py-4 rounded-full cursor-pointer outline-solid outline-2 hover:bg-slate-100 hover:shadow-lg transition ease-linear duration-150"
+              className="text-lg font-medium px-6 py-4 rounded-full cursor-pointer outline-solid outline-2 hover:bg-stone-100 dark:hover:bg-stone-800 hover:shadow-lg transition ease-linear duration-150"
             >
               Decrease Counter
             </button>
