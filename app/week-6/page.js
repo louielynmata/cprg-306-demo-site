@@ -46,6 +46,7 @@ export default function Page() {
               <p>
                 {identity.variant} {identity.species}
               </p>
+              {/* TODO: Add a button that makes an alert to show information */}
             </li>
           ))}
         </ul>
