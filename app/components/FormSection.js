@@ -4,7 +4,6 @@ import SimpleForm from "./SimpleForm";
 
 export default function FormSection() {
   const [formData, setFormData] = useState("");
-
   function handleChildData(data) {
     setFormData(data);
   }
@@ -12,9 +11,9 @@ export default function FormSection() {
   return (
     <section>
       <header>
-        <h2 className="text-3xl mb-4">Form Componet Example with Output</h2>
+        <h2 className="text-3xl mb-4">Form Section</h2>
         <p className="text-xl font-bold my-4">
-          Data from Child Component: {formData}
+          Data from simple form Component: {formData}
         </p>
       </header>
       <SimpleForm onDataSend={handleChildData} />

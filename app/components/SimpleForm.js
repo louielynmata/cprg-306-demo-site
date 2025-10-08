@@ -15,6 +15,7 @@ export default function SimpleForm({ onDataSend }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <legend>Simple Form Component</legend>
       <label htmlFor="user-name">User Name</label>
       <input
         type="text"
