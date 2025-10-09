@@ -1,56 +1,58 @@
-import PageHeader from "../components/PageHeader";
-export default function Page() {
-  const testArr = [1, 2, 3, 4];
-  const identities = [
-    {
-      name: "Abramham Delacy",
-      age: 6,
-      species: "Cat",
-      variant: "Alley",
-    },
-    { name: "Giusuppe Casey", age: 8, species: "Cat", variant: "Alley" },
-    {
-      name: "Thomas O'Mally",
-      age: 10,
-      species: "Cat",
-      variant: "Alley",
-    },
-  ];
+const catNames = ["abraham", "delacy", "guisuppe", "casey", "thomas omally"];
 
+function ListItem({ item, bgColor }) {
+  return <li className={`${bgColor} text-xl`}>{item}</li>;
+}
+
+function NameList() {
+  return (
+    <ul>
+      {catNames.map((name, index) => {
+        if (name === "thomas omally") {
+          return (
+            <ListItem
+              item={name}
+              key={index}
+              bgColor={"bg-green-400 dark:bg-green-800"}
+            />
+          );
+        }
+        return <ListItem item={name} key={index} />;
+      })}
+    </ul>
+  );
+}
+
+function PersonListItem({ name, age }) {
+  return (
+    <li>
+      {name} - {age}
+    </li>
+  );
+}
+export default function Page() {
+  const people = [
+    { id: 1, name: "Aneesh", age: 25 },
+    { id: 2, name: "Baptiste", age: 30 },
+    { id: 3, name: "Chun", age: 35 },
+  ];
   return (
     <main>
-      <PageHeader
-        title="List Rendering Demo"
-        description="Using map to render list of arrays"
-      />
-      <div>
-        <h2>Example that has a return in the map</h2>
+      <header>
+        <h1>List of Alley Cat Names</h1>
+      </header>
+      <section className="m-8">
+        <h2 className="text-2xl">Aristocat names</h2>
+        <NameList />
+      </section>
+      <section className="m-8">
+        <h2 className="text-2xl">People Names</h2>
         <ul>
-          {testArr.map((num) => {
-            return <li>{num}</li>;
-          })}
-        </ul>
-      </div>
-      <div>
-        <h2>O'Mally the Alley Cat</h2>
-        <p>
-          If you write your map function using curly brackets after fat arrow.
-          you need to use a return
-        </p>
-        <ul>
-          {identities.map((identity, index) => (
-            <li key={index} className="text-2xl">
-              <h3>
-                {index + 1}- {identity.name}
-              </h3>
-              <p>
-                {identity.variant} {identity.species}
-              </p>
-              {/* TODO: Add a button that makes an alert to show information */}
-            </li>
+          {people.map((person) => (
+            <PersonListItem key={person.id} {...person} />
           ))}
         </ul>
-      </div>
+      </section>
     </main>
   );
 }
