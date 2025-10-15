@@ -10,15 +10,15 @@ import SectionHeader from "../components/SectionHeader";
 export default function Page() {
   const characterName = "Edmund Fildergasterberger";
   const [characterAge, setCharacterAge] = useState(399);
-  const [counterNumber, setCounterNumber] = useState(0);
+  const [counterNumber, setCounterNumber] = useState(defaultValue);
 
   function decreaseCounter() {
     setCounterNumber(counterNumber - 5);
   }
-
+  const defaultValue = 0;
   function resetCounter() {
     // TODO: Create reset function for counter.
-    setCounterNumber(0);
+    setCounterNumber(defaultValue);
     // use example from logrocket: https://blog.logrocket.com/initialize-state-react-hooks/
   }
 
