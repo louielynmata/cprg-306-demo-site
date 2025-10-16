@@ -7,6 +7,9 @@ export default function SimpleForm({ onDataSend }) {
     setUserName(event.target.value);
   };
 
+  function formReset() {
+    
+  }
   function handleSubmit(event) {
     event.preventDefault();
     onDataSend(userName);
