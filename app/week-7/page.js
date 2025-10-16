@@ -1,67 +1,45 @@
 "use client";
-import { useState } from "react";
-
+import { useState, useRef } from "react";
 export default function Page() {
-  const coffeeVarieties = [
-    { id: 232, name: "Brazilian Blitz Bonanza", cost: "3.45", quantity: 0 },
-    { id: 233, name: "Sumatra Party", cost: "5.30", quantity: 0 },
-    { id: 234, name: "Tiny Tim's Toolshed", cost: "2.20", quantity: 0 },
-  ];
-  const [coffees, setCoffees] = useState([...coffeeVarieties]);
+  const [primes, setPrimes] = useState([1, 2, 3, 5, 7]);
+  // ref creates a variable that isn't being destroyed and rebuilt the same way as useState
+  const nextPrimesRef = useRef([11, 13, 17, 23, 29]);
 
-  const [coffeeOfTheDay, setCoffeeOfTheDay] = useState(coffeeVarieties[0]);
-
-  function updateCoffeeOfTheDayQuantity() {
-    setCoffeeOfTheDay({
-      ...coffeeOfTheDay,
-      quantity: coffeeOfTheDay.quantity + 1,
-    });
+  function addPrimesToList() {
+    if (!nextPrimesRef.current?.length) {
+      throw new Error("No more primes available in the next primes array");
+    }
+    setPrimes([...primes, nextPrimesRef.current.shift()]);
   }
 
   return (
-    <main>
-      <header>
-        <h1>Exploring State with Objects</h1>
-        <p>review of list rendering as well</p>
+    <main className="mx-4">
+      <header className="my-4">
+        <h1 className="text-4xl">State Management with Arrays and Objects</h1>
+        <p>
+          Simple to complex examples of using state in react and practicing
+          immutability with our code patterns.
+        </p>
       </header>
       <section>
-        <header>
-          <h2>Exploring Immutability</h2>
+        <header className="my-4">
+          <h2 className="text-3xl">List of Prime Numbers</h2>
         </header>
-        <div className="my-12">
-          <h3>Coffee of the Day: {coffeeOfTheDay.name} </h3>
-          <p>{coffeeOfTheDay.cost}</p>
-          <p>{coffeeOfTheDay.quantity}</p>
+        <div>
+          <ul>
+            {primes.map((prime) => (
+              <li key={prime} className="my-1 text-lg">
+                {prime}
+              </li>
+            ))}
+          </ul>
           <button
-            className="px-4 py-2 mt-4 rounded-lg bg-pink-800 cursor-pointer"
-            onClick={updateCoffeeOfTheDayQuantity}
+            onClick={addPrimesToList}
+            className="px-4 py-3 bg-blue-800 cursor-pointer"
           >
-            Increase Quantity
+            Add prime from collection
           </button>
         </div>
-      </section>
-      <section className="my-4">
-        <h2 className="mb-2 text-2xl font-semibold">Array of Objects</h2>
-        <ul>
-          {coffees.map((coffee) => {
-            return (
-              <li
-                key={coffee.id}
-                className="my-6 w-52 bg-blue-800 p-4 rounded-lg"
-              >
-                <h3 className="font-semibold text-lg">{coffee.name}</h3>
-                <div className="flex justify-between gap-4">
-                  <p>{coffee.cost}</p>
-                  <p className="font-semibold text-lg">{coffee.quantity}</p>
-                </div>
-                {/* TODO: Add stateful button for individual array items */}
-                <button className="px-4 py-2 mt-4 rounded-lg bg-pink-800 cursor-pointer">
-                  Increase Quantity
-                </button>
-              </li>
-            );
-          })}
-        </ul>
       </section>
     </main>
   );
