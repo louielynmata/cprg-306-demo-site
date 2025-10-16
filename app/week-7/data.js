@@ -1,0 +1,67 @@
+export const userList = [
+  {
+    id: 1,
+    name: "Alice Chen",
+    email: "alice.chen@email.com",
+    role: "admin",
+    isActive: true,
+    lastLogin: "2025-10-15T14:30:00Z",
+    permissions: ["read", "write", "delete"],
+    metadata: {
+      department: "Engineering",
+      hireDate: "2023-03-15",
+    },
+  },
+  {
+    id: 2,
+    name: "Bob Martinez",
+    email: "bob.martinez@email.com",
+    role: "editor",
+    isActive: true,
+    lastLogin: "2025-10-16T09:15:00Z",
+    permissions: ["read", "write"],
+    metadata: {
+      department: "Marketing",
+      hireDate: "2023-07-20",
+    },
+  },
+  {
+    id: 3,
+    name: "Carol Wilson",
+    email: "carol.wilson@email.com",
+    role: "viewer",
+    isActive: false,
+    lastLogin: "2025-09-28T16:45:00Z",
+    permissions: ["read"],
+    metadata: {
+      department: "Sales",
+      hireDate: "2022-11-03",
+    },
+  },
+  {
+    id: 4,
+    name: "David Kim",
+    email: "david.kim@email.com",
+    role: "editor",
+    isActive: true,
+    lastLogin: "2025-10-16T08:00:00Z",
+    permissions: ["read", "write"],
+    metadata: {
+      department: "Engineering",
+      hireDate: "2024-01-10",
+    },
+  },
+  {
+    id: 5,
+    name: "Emma Thompson",
+    email: "emma.thompson@email.com",
+    role: "admin",
+    isActive: true,
+    lastLogin: "2025-10-15T18:20:00Z",
+    permissions: ["read", "write", "delete"],
+    metadata: {
+      department: "Operations",
+      hireDate: "2021-05-12",
+    },
+  },
+];
