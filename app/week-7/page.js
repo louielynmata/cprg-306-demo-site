@@ -1,5 +1,8 @@
 "use client";
+
 import { useState, useRef } from "react";
+import { Icon } from "@iconify/react";
+import { userList } from "./data";
 
 // utility function to validate prime number
 
@@ -18,12 +21,14 @@ const isPrime = (num) => {
 export default function Page() {
   const [primes, setPrimes] = useState([1, 2, 3, 5, 7]);
   const [primeCandidate, setPrimeCandidate] = useState("");
+  const [users, setUsers] = useState([...userList]);
+
   const nextPrimes = useRef([11, 13, 17, 19, 23, 29]);
 
   const addPrimesToListFromCollection = () => {
     if (!nextPrimes.current?.length)
       throw new Error("No more primes available in the next primes array");
-    // check if not in array, if so then add
+    // check if not in array, if so then add. This logic does the same thing as the .some example below
     if (primes.includes(nextPrimes.current)) return;
     setPrimes([...primes, nextPrimes.current.shift()]);
   };
@@ -38,10 +43,22 @@ export default function Page() {
     if (isNaN(primeCandidate))
       throw new Error("Prime Candidate is not a number");
     // don't add duplicate numbers that are already in the prime list
-    if (primes.includes(primeCandidate)) return;
+    if (primes.some((prime) => prime === primeCandidate))
+      throw new Error("Prime Candidate is already in the array");
     // add prime candidate to prime list
+    // TODO: Add client side error handling
     if (isPrime(primeCandidate)) setPrimes([...primes, primeCandidate]);
   };
+
+  const toggleUserIsActive = (user) => {
+    setUsers((prevUsers) =>
+      // todo: try using filter
+      prevUsers.map((u) =>
+        u.id === user.id ? { ...u, isActive: !u.isActive } : u
+      )
+    );
+  };
+
   return (
     <main className="mx-4">
       <header className="my-4">
@@ -104,7 +121,38 @@ export default function Page() {
           <h2>User List</h2>
         </header>
         <div>
-          <ul></ul>
+          <ul>
+            {users.map((user) => (
+              <li key={user.id} className="my-4 max-w-md">
+                <div>
+                  <h3 className="text-xl font-bold">{user.name}</h3>
+                  <div
+                    className={`${
+                      user.isActive ? "bg-blue-500" : "bg-red-500"
+                    } w-fit p-4`}
+                  >
+                    {user.isActive ? (
+                      <Icon icon="ooui:user-active" width="48" />
+                    ) : (
+                      <Icon icon="emojione-monotone:no-entry" width="48" />
+                    )}
+                  </div>
+                </div>
+                <div>
+                  <ul>
+                    <li>Role: {user.role}</li>
+                    <li>Department: {user.metadata.department}</li>
+                  </ul>
+                </div>
+                <button
+                  onClick={() => toggleUserIsActive(user)}
+                  className="cursor-pointer rounded-full bg-pink-800 px-8 py-4 transition duration-150 ease-linear hover:bg-pink-900 hover:shadow-lg dark:bg-pink-500 hover:dark:bg-pink-700 active:bg-blue-900 "
+                >
+                  Toggle Active Status
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>
