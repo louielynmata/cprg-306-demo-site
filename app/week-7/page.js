@@ -94,7 +94,7 @@ export default function Page() {
           <h2 className="text-3xl">Add prime to list from form</h2>
         </header>
         {/* TODO: Look into why onClick made entire form act like a button */}
-        <form className="p-4 my-2 bg-slate-800 w-fit">
+        <form className="p-4 my-2 bg-slate-200 dark:bg-slate-800 w-fit">
           <div className="my-2">
             <label htmlFor="prime-input" className="text-lg font-semibold">
               Input Prime Candidate Number:{" "}
