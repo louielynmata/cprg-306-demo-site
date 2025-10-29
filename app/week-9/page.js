@@ -1,5 +1,5 @@
 import CounterDemoSection from "./CounterDemoSection";
-
+import DataFetchDemoSection from "./DataFetchDemoSection";
 const PageHeader = () => {
   return (
     <header>
@@ -13,6 +13,7 @@ export default function Page() {
     <main>
       <PageHeader />
       <CounterDemoSection />
+      <DataFetchDemoSection />
     </main>
   );
 }
