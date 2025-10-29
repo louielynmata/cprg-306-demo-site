@@ -22,7 +22,7 @@ export default function Page() {
   }
   useEffect(() => {
     fetchCharacters();
-  }, []);
+  }, [characters]);
 
   if (error) {
     return (
