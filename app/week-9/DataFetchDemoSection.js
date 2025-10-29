@@ -4,6 +4,7 @@ export default function DataFetchDemoSection() {
   const { data, error, isLoading } = useFetch(
     "https://api.restful-api.dev/objects"
   );
+
   if (error) {
     return (
       <div className="bg-red-500">
