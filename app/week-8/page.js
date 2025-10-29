@@ -38,14 +38,15 @@ export default function Page() {
         <h1>List of Disney Characters</h1>
       </header>
       <div>
-        {characters.length > 0 ? (
-          characters.map((character) => (
-            <li key={character._id}>{character.name}</li>
-          ))
-        ) : (
-          <p className="text-5xl text-center">Loading</p>
-        )}
-        <ul></ul>
+        <ul>
+          {characters.length > 0 ? (
+            characters.map((character) => (
+              <li key={character._id}>{character.name}</li>
+            ))
+          ) : (
+            <p className="text-5xl text-center">Loading</p>
+          )}
+        </ul>
       </div>
     </main>
   );
