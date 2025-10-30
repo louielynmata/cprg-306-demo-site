@@ -1,5 +1,8 @@
+"use client";
 import Link from "next/link";
+import { useUser } from "../contexts/UserContext";
 export default function SiteHeader() {
+  const { user } = useUser();
   return (
     <header>
       <nav className="flex justify-between gap-4 px-4 bg-black text-white py-8">
@@ -7,6 +10,9 @@ export default function SiteHeader() {
           <Link href="/" className="text-2xl font-bold">
             Home
           </Link>
+          <p>
+            {user.name} {user.loggedIn ? "Logged In" : "Logged Out"}
+          </p>
         </div>
         <ul className="flex gap-4 text-lg">
           <li>
@@ -20,6 +26,9 @@ export default function SiteHeader() {
           </li>
           <li>
             <Link href="week-5">Week 5</Link>
+          </li>
+          <li>
+            <Link href="week-9">Week 9</Link>
           </li>
         </ul>
       </nav>
