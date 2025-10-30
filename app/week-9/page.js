@@ -1,4 +1,5 @@
 import CounterDemoSection from "./CounterDemoSection";
+import DataFetchSection from "./DataFetchSection";
 export default function Page() {
   return (
     <main>
@@ -10,6 +11,7 @@ export default function Page() {
         </p>
       </header>
       <CounterDemoSection />
+      <DataFetchSection />
     </main>
   );
 }
