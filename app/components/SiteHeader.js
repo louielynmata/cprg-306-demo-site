@@ -28,7 +28,22 @@ export default function SiteHeader() {
             <Link href="week-5">Week 5</Link>
           </li>
           <li>
-            <Link href="week-9">Week 9</Link>
+            <Link href="week-5-me">Week 5 ME</Link>
+          </li>
+          <li>
+            <Link href="week-6">Week 6</Link>
+          </li>
+          <li>
+            <Link href="week-7">Week 7</Link>
+          </li>
+          <li>
+            <Link href="week-8">Week 8</Link>
+          </li>
+          <li>
+            <Link href="week-8-me">Week 8 ME</Link>
+          </li>
+          <li>
+            <Link href="week-9-me">Week 9 ME</Link>
           </li>
         </ul>
       </nav>
