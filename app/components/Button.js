@@ -20,11 +20,12 @@ export function AppButton({ text, onClick, variant = "primary" }) {
       "bg-blue-500 hover:bg-blue-700 dark:bg-orange-500 hover:dark:bg-orange-700",
     secondary:
       "bg-gray-500 hover:bg-gray-700 dark:bg-gray-600 hover:dark:bg-gray-800",
+    outline: "",
   };
   return (
     <button
       onClick={onClick}
-      className={`${variants[variant]} px-4 py-2 rounded-full cursor-pointer`}
+      className={`${variants[variant]}  px-4 py-2 rounded-full cursor-pointer`}
     >
       {text}
     </button>

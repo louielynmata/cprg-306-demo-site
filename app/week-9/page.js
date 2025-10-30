@@ -1,5 +1,6 @@
 import CounterDemoSection from "./CounterDemoSection";
 import DataFetchSection from "./DataFetchSection";
+import SimpleLoginSection from "./SimpleLoginSection";
 export default function Page() {
   return (
     <main>
@@ -12,6 +13,7 @@ export default function Page() {
       </header>
       <CounterDemoSection />
       <DataFetchSection />
+      <SimpleLoginSection />
     </main>
   );
 }
