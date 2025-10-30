@@ -1,49 +1,53 @@
 "use client";
+
 import { useState, useEffect } from "react";
+
 export default function Page() {
-  const [disneyCharacters, setDisneyCharacters] = useState([]);
+  const [characters, setCharacters] = useState([]);
   const [error, setError] = useState(null);
 
-  // async fetch characters
-  async function fetchDisneyCharacters() {
+  async function fetchCharacters() {
     try {
       const response = await fetch("https://api.disneyapi.dev/character");
+      if (!response.ok) {
+        throw new Error(
+          `HTTP Error! status ${response.status}\n ${response.message}`
+        );
+      }
       const data = await response.json();
-      setDisneyCharacters(data.data);
-      setError(null);
+      setCharacters(data.data);
     } catch (error) {
-      setError(error.message);
-      console.error(error);
+      setError(error);
     }
   }
-
-  // useEffect to run the fetch async function
   useEffect(() => {
-    fetchDisneyCharacters();
-  }, []);
+    fetchCharacters();
+  }, [characters]);
 
-  // if there's an error fetching, let the user know
   if (error) {
     return (
-      <main>
-        <h2>OH NO!</h2>
-        <p>{error}</p>
+      <main className="bg-red-500 text-white h-full flex justify-center items-center text-center">
+        <h1>Disney API Fetch Error</h1>
+        <p>{error.message}</p>
       </main>
     );
   }
   return (
     <main>
-      <h2>Data List</h2>
-      <ul>
-        {/* if the character array has stuff in it... render it */}
-        {disneyCharacters.length > 0 ? (
-          disneyCharacters.map((character) => (
-            <li key={character._id}>{character.name}</li>
-          ))
-        ) : (
-          <p>Loading...</p>
-        )}
-      </ul>
+      <header className="text-4xl mb-8">
+        <h1>List of Disney Characters</h1>
+      </header>
+      <div>
+        <ul>
+          {characters.length > 0 ? (
+            characters.map((character) => (
+              <li key={character._id}>{character.name}</li>
+            ))
+          ) : (
+            <p className="text-5xl text-center">Loading</p>
+          )}
+        </ul>
+      </div>
     </main>
   );
 }
