@@ -9,13 +9,13 @@ import SectionHeader from "../components/SectionHeader";
 
 export default function Page() {
   const characterName = "Edmund Fildergasterberger";
+  const defaultValue = 0;
   const [characterAge, setCharacterAge] = useState(399);
   const [counterNumber, setCounterNumber] = useState(defaultValue);
 
   function decreaseCounter() {
     setCounterNumber(counterNumber - 5);
   }
-  const defaultValue = 0;
   function resetCounter() {
     // TODO: Create reset function for counter.
     setCounterNumber(defaultValue);
