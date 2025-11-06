@@ -11,7 +11,10 @@ export default function AuthDemoSection() {
   };
   return (
     <section className="my-4 p-6 bg-stone-300 dark:bg-stone-800 rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">Authentication Section</h2>
+      <header>
+        <h2 className="text-2xl font-bold mb-4">Authentication Section</h2>
+        <p></p>
+      </header>
       {loading ? (
         <p>Loading auth state...</p>
       ) : authUser ? (
