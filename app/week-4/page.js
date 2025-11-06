@@ -21,7 +21,6 @@ export default function Page() {
     setCounterNumber(defaultValue);
     // use example from logrocket: https://blog.logrocket.com/initialize-state-react-hooks/
   }
-
   // Static Messages in header
   function alertWithStaticMessage() {
     alert(`Hello user, Look into why the static function doesn't read msg`);
