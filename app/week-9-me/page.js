@@ -1,3 +1,4 @@
+import AuthDemoSection from "./AuthDemoSection";
 import CounterDemoSection from "./CounterDemoSection";
 import DataFetchSection from "./DataFetchSection";
 import SimpleLoginScreen from "./SimpleLoginScreen";
@@ -16,8 +17,9 @@ export default function Page() {
     <main>
       <header>
         <h1 className="text-2xl font-bold">Custom Hooks and Functions</h1>
-        <p className="text-gray-600">Does this</p>
+        <p className="text-gray-600">Does this text have a server side?</p>
       </header>
+      <AuthDemoSection />
       <CounterDemoSection />
       <DataFetchSection />
       <SimpleLoginScreen />

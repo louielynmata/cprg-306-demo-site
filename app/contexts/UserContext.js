@@ -24,4 +24,5 @@ export function UserProvider({ children }) {
   );
 }
 
+// Hook to use the UserContext in components to actually view the data
 export const useUser = () => useContext(UserContext);
