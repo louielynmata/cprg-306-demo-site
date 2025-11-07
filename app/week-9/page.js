@@ -1,3 +1,4 @@
+import AuthDemoSection from "./AuthDemoSection";
 import CounterDemoSection from "./CounterDemoSection";
 import DataFetchSection from "./DataFetchSection";
 import SimpleLoginSection from "./SimpleLoginSection";
@@ -11,6 +12,7 @@ export default function Page() {
           server side?
         </p>
       </header>
+      <AuthDemoSection />
       <CounterDemoSection />
       <DataFetchSection />
       <SimpleLoginSection />

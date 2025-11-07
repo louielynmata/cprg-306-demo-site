@@ -11,6 +11,16 @@ export default function Home() {
         title="The Home Page"
         description="It's not much but it's honest work."
       />
+      <section>
+        <header>
+          <h2 className="text-2xl">Pages</h2>
+        </header>
+        <ul>
+          <li>
+            <Link href="protected">Protected Route</Link>
+          </li>
+        </ul>
+      </section>
     </main>
   );
 }

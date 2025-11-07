@@ -19,13 +19,31 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   // 7. Listen for auth state changes
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setAuthUser(user);
-      setLoading(false);
-    });
-    return () => unsubscribe();
+useEffect(() => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (user) => {
+        if (user) {
+          console.log("User Authenticated: ", user.email);
+        } else {
+          console.log("No user found");
+        }
+        setAuthUser(user);
+        setLoading(false);
+        console.log("loading complete");
+      },
+      (error) => {
+        console.error("Auth error", error);
+        setAuthUser(null);
+        setLoading(false);
+      }
+    );
+    return () => {
+      console.log("Cleaning up listener");
+      unsubscribe();
+    };
   }, []);
+
 
   // 4. Provide auth state to children
   return (
