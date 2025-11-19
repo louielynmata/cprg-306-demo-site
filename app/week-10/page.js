@@ -115,7 +115,7 @@ export default function Page() {
         <button
           onClick={() => handleSubmit()}
           className={`px-4 py-2 m-2 rounded-md ${
-            editId ? "bg-yellow-700" : "bg-blue-700"
+            editId ? "bg-blue-500" : "bg-blue-700"
           }`}
         >
           {editId ? "Edit" : "Add"}
@@ -123,7 +123,7 @@ export default function Page() {
         {editId && (
           <button
             onClick={handleCancel}
-            className="px-4 py-2 m-2 rounded-md bg-orange-700"
+            className="px-4 py-2 m-2 rounded-md bg-gray-700"
           >
             Cancel Edit
           </button>
