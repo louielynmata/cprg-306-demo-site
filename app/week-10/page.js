@@ -1,21 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useFirestoreCollection } from "@/app/hooks/useFirestoreCollection";
 import {
   addItem,
   getItems,
   updateItem,
   deleteItem,
 } from "@/app/lib/controller";
-import { useFirestoreCollection } from "../hooks/useFirestoreCollection";
 
 export default function Page() {
-  // create data input field state
   const [inputValue, setInputValue] = useState("");
-  // edit id state
   const [editId, setEditId] = useState(null);
-  // data state TO BE OPTIMIZED
-  // const [items, setItems] = useState("");
-  const { data: items, isLoading, error } = useFirestoreCollection("users");
+  const { data: items, isDataLoading, dataError } = useFirestoreCollection();
   // handle create entry
   const handleSubmit = async (e) => {
     e?.preventDefault();
@@ -30,7 +26,6 @@ export default function Page() {
         await addItem("users", inputValue);
       }
       setInputValue("");
-      getItems("users");
     } catch (error) {
       console.error(`Error adding ${inputValue}`, error);
     }
@@ -58,7 +53,9 @@ export default function Page() {
   const fetchItems = async () => {
     try {
       const data = await getItems("users");
-      // setItems(data);
+      if (!data) {
+        throw new Error("No data from users");
+      }
     } catch (error) {
       console.error(`Error fetching items from users`, error);
     }
@@ -66,7 +63,19 @@ export default function Page() {
   useEffect(() => {
     fetchItems();
   }, []);
-  console.log(items);
+
+  if (isDataLoading) {
+    return (
+      <div className="my-12">
+        <p className="text-lg py-8">Data Loading</p>
+      </div>
+    );
+  }
+  if (dataError) {
+    return (
+      <p className="text-2xl font-bold text-red my-8">ERROR: {dataError}</p>
+    );
+  }
   return (
     <main>
       <header>

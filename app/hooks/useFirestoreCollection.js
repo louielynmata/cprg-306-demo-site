@@ -6,8 +6,8 @@ import { db } from "@/app/firebase/config";
 
 export function useFirestoreCollection(collectionName = "users") {
   const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  const [dataError, setDataError] = useState(null);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -18,15 +18,16 @@ export function useFirestoreCollection(collectionName = "users") {
           ...doc.data(),
         }));
         setData(items);
-        setIsLoading(false);
-        setError(null);
+        setIsDataLoading(false);
+        setDataError(null);
       },
       (error) => {
         setError(error.message);
-        setIsLoading(false);
+        setIsDataLoading(false);
       }
     );
+
     return unsubscribe;
   }, [collectionName]);
-  return { data, isLoading, error };
+  return { data, isDataLoading, dataError };
 }
