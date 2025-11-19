@@ -21,7 +21,8 @@ export default function Page() {
   // we use this to track which is being modified
   const [editId, setEditId] = useState(null);
   // 6.data state (TO BE OPTIMIZED LATER)
-  const [items, setItems] = useState("");
+  // const [items, setItems] = useState("");
+  const { data, error, isLoading } = useFirestorecollection("users");
 
   // 7. These will be the main logic
   // 7.1 handle create entry
