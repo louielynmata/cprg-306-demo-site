@@ -11,11 +11,9 @@ import {
 import { db } from "@/app/firebase/config";
 
 // Create DB Entry
-export const addItem = async (collectionName, itemName) => {
+export const addItem = async (collectionName, userData) => {
   try {
-    await addDoc(collection(db, collectionName), {
-      name: itemName,
-    });
+    await addDoc(collection(db, collectionName), userData);
   } catch (error) {
     console.error(`Error adding ${itemName} to Collection ${collectionName}`);
   }
@@ -34,10 +32,10 @@ export const getItems = async (collectionName) => {
   }
 };
 // Update an Entry
-export const updateItem = async (id, collectionName, newName) => {
+export const updateItem = async (id, collectionName, userData) => {
   try {
     const itemDoc = doc(db, collectionName, id);
-    await updateDoc(itemDoc, { name: newName });
+    await updateDoc(itemDoc, userData);
   } catch (error) {
     console.error(`Error Updating: ${id} ${newName}`, error);
   }
