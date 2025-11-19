@@ -8,38 +8,53 @@ import {
   deleteItem,
 } from "@/app/lib/controller";
 
+// create form schema for starter data
+const formDataSchema = {
+  name: "",
+  species: "",
+  age: null,
+  interests: [],
+};
 export default function Page() {
-  const [inputValue, setInputValue] = useState("");
+  const [formData, setFormData] = useState(formDataSchema);
+  // TODO: Set interests state
   const [editId, setEditId] = useState(null);
   const { data: items, isDataLoading, dataError } = useFirestoreCollection();
-  // handle create entry
+
   const handleSubmit = async (e) => {
     e?.preventDefault();
-    if (!inputValue.trim()) return;
+    // for loop, check that all required fields have content in them or return
+    if (!formData.name.trim()) return;
     try {
       if (editId) {
-        console.log(`updating item: ${editId} with ${inputValue}`);
-        await updateItem(editId, "users", inputValue);
+        console.log(`updating item: ${editId} with ${formData}`);
+        await updateItem(editId, "users", formData);
         setEditId(null);
       } else {
-        console.log(`Adding new item: ${inputValue}`);
-        await addItem("users", inputValue);
+        console.log(`Adding new item: ${formData}`);
+        await addItem("users", formData);
       }
-      setInputValue("");
+      setFormData(formDataSchema);
     } catch (error) {
-      console.error(`Error adding ${inputValue}`, error);
+      console.error(`Error adding ${formData}`, error);
     }
   };
-  // handle edit entry
+
   const handleEdit = (item) => {
-    setInputValue(item.name);
+    setFormData({
+      name: item.name || "",
+      species: item.species || "",
+      age: item.age || null,
+      interests: [],
+    });
     setEditId(item.id);
   };
   const handleCancel = () => {
     setEditId(null);
-    setInputValue("");
+    setFormData(formDataSchema);
+    setInterests([]);
   };
-  // handle delete entry
+
   const handleDelete = async (id) => {
     try {
       await deleteItem(id, "users");
@@ -49,7 +64,7 @@ export default function Page() {
       console.error(`Error Deleting ${id}`);
     }
   };
-  // fetch all data from the db
+
   const fetchItems = async () => {
     try {
       const data = await getItems("users");
@@ -110,7 +125,64 @@ export default function Page() {
           )}
         </ul>
       </section>
-      <section>
+      <section className="my-8">
+        <h2 className="text-lg">{editId ? "Edit User" : "Add User"}</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="name">Name: </label>
+            <input
+              type="text"
+              id="name"
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+              className="border-1 mx-2  p-2"
+            />
+          </div>
+          <div>
+            <label htmlFor="species">Species: </label>
+            <input
+              type="text"
+              id="species"
+              value={formData.species}
+              onChange={(e) =>
+                setFormData({ ...formData, species: e.target.value })
+              }
+              className="border-1 mx-2  p-2"
+            />
+          </div>
+          <div>
+            <label htmlFor="age">Age: </label>
+            <input
+              type="number"
+              id="age"
+              value={formData.age || ""}
+              onChange={(e) =>
+                setFormData({ ...formData, age: e.target.value })
+              }
+              className="border-1 mx-2  p-2"
+            />
+          </div>
+          <div>{/* TODO: interests */}</div>
+          <input
+            type="submit"
+            className={`px-4 py-2 m-2 rounded-md ${
+              editId ? "bg-blue-500" : "bg-blue-700"
+            }`}
+            value={editId ? "edit user" : "add user"}
+          />
+          {editId && (
+            <button
+              onClick={handleCancel}
+              className="px-4 py-2 m-2 rounded-md bg-gray-700"
+            >
+              Cancel Edit
+            </button>
+          )}
+        </form>
+      </section>
+      {/* <section>
         <label htmlFor="input-name">{editId ? "Edit User" : "Add User"}</label>
         <input
           type="text"
@@ -141,6 +213,7 @@ export default function Page() {
           </button>
         )}
       </section>
+ */}
     </main>
   );
 }
