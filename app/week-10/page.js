@@ -6,6 +6,7 @@ import {
   updateItem,
   deleteItem,
 } from "@/app/lib/controller";
+import { useFirestoreCollection } from "../hooks/useFirestoreCollection";
 
 export default function Page() {
   // create data input field state
@@ -13,8 +14,8 @@ export default function Page() {
   // edit id state
   const [editId, setEditId] = useState(null);
   // data state TO BE OPTIMIZED
-  const [items, setItems] = useState("");
-
+  // const [items, setItems] = useState("");
+  const { data: items, isLoading, error } = useFirestoreCollection("users");
   // handle create entry
   const handleSubmit = async (e) => {
     e?.preventDefault();
@@ -47,6 +48,8 @@ export default function Page() {
   const handleDelete = async (id) => {
     try {
       await deleteItem(id, "users");
+      // TODO Implement graceful delete update
+      alert("Deleted!");
     } catch (error) {
       console.error(`Error Deleting ${id}`);
     }
@@ -55,7 +58,7 @@ export default function Page() {
   const fetchItems = async () => {
     try {
       const data = await getItems("users");
-      setItems(data);
+      // setItems(data);
     } catch (error) {
       console.error(`Error fetching items from users`, error);
     }
