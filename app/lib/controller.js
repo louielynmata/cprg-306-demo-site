@@ -17,23 +17,18 @@ import { db } from "@/app/firebase/config";
 
 // 3. create db entry
 // you can put export at the end, or you can put it here.
-export const addItem = async (collectionName, itemName) => {
+export const addItem = async (collectionName, userData) => {
+  // addDoc is a function that adds a document to a collection
   try {
-    // addDoc is a function that adds a document to a collection
-    await addDoc(collection(db, collectionName), {
-      name: itemName,
-    });
+    await addDoc(collection(db, collectionName), userData);
   } catch (error) {
-    console.error(
-      `Error adding ${itemName}: to Collection ${collectionName}`,
-      error
-    );
+    // Ashlyn add's catch error first
+    console.error(`Error adding ${itemName} to Collection ${collectionName}`);
   }
 };
 
 // 4. read all entries
 export const getItems = async (collectionName) => {
-  // Ashlyn add's catch error first
   try {
     const querySnapshot = await getDocs(collection(db, collectionName));
     return querySnapshot.docs.map((doc) => ({
@@ -41,26 +36,25 @@ export const getItems = async (collectionName) => {
       ...doc.data(),
     }));
   } catch (error) {
-    console.error(`Error getting documents from ${collectionName}`, error);
+    console.error(`Error reading collection: ${collectionName}`, error);
   }
 };
-
-// 5. update an entry
-export const updateItem = async (id, collectionName, nwName) => {
+// 5. Update an Entry
+export const updateItem = async (id, collectionName, userData) => {
   try {
     const itemDoc = doc(db, collectionName, id);
-    await updateDoc(itemDoc, { name: newName });
+    await updateDoc(itemDoc, userData);
   } catch (error) {
-    console.error(`Error updating: ${id} ${newName}`, error);
+    console.error(`Error Updating: ${id} ${newName}`, error);
   }
 };
+// 6. Delete an Entry
 
-// 5. delete an entry
 export const deleteItem = async (id, collectionName) => {
   try {
     const itemDoc = doc(db, collectionName, id);
     await deleteDoc(itemDoc);
   } catch (error) {
-    console.error(`Error deleting item with id: ${id}`, error);
+    console.error(`Error deleting ${id}`);
   }
 };

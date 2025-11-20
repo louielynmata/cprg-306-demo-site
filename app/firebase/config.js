@@ -29,8 +29,10 @@ let analytics;
 if (typeof window !== "undefined") {
   analytics = getAnalytics(app);
 }
-// const auth = getAuth(app);
-// Export auth instance used by your app
-export const auth = getAuth(app);
+
+// Initialize other Firebase services
+
+const auth = getAuth(app);
+
 const db = getFirestore(app);
 export { app, auth, analytics, db };
